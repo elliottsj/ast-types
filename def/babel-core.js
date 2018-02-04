@@ -207,6 +207,7 @@ module.exports = function (fork) {
     .field("computed", Boolean, defaults["false"])
     .field("generator", Boolean, defaults["false"])
     .field("async", Boolean, defaults["false"])
+    .field("accessibility", def("Literal")) // typescript
     .field("decorators",
            or([def("Decorator")], null),
            defaults["null"]);
@@ -216,6 +217,7 @@ module.exports = function (fork) {
     .build("key", "value")
     .field("key", or(def("Literal"), def("Identifier"), def("Expression")))
     .field("value", or(def("Expression"), def("Pattern")))
+    .field("accessibility", def("Literal")) // typescript
     .field("computed", Boolean, defaults["false"]);
 
   var ClassBodyElement = or(
